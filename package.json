@@ -1,0 +1,47 @@
+{
+  "name": "@naiheyoung/color",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.20.0",
+  "description": "Oh! Color lib.",
+  "homepage": "https://github.com/naiheyoung/color-lib#readme",
+  "author": "Naihe",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "hello": "bin/cli.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && tsup"
+  },
+  "keywords": [
+    "color",
+    "ui",
+    "esm",
+    "cjs",
+    "cli",
+    "template"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "cac": "^6.7.14",
+    "chalk": "^5.6.2",
+    "ora": "^9.0.0",
+    "rimraf": "^6.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
