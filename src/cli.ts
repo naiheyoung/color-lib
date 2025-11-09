@@ -1,22 +1,13 @@
 import cac from 'cac'
 import chalk from 'chalk'
-import { readFile } from 'fs/promises'
-import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
+import { getColor } from './index'
 
-const regex = /(rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)|#[0-9a-fA-F]{3,8})/g
 const rgbRegex = /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 const cli = cac('colors')
 
 cli.command('[]').action(async () => {
-  const content = await readFile(join(__dirname, '../css/color.css'), 'utf-8')
-  const colors = content.match(regex)
-  const hexColors = colors?.filter(c => c.startsWith('#'))
-  const rgbColors = colors?.filter(c => !c.startsWith('#'))
+  const [hexColors, rgbColors] = await getColor()
   console.log('Apple Color')
   rgbColors?.forEach(color => {
     const [_, r, g, b] = color.match(rgbRegex) as RegExpMatchArray
