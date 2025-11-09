@@ -14,7 +14,7 @@
     ".": "./dist/index.js"
   },
   "bin": {
-    "hello": "bin/cli.js"
+    "colors": "bin/cli.js"
   },
   "scripts": {
     "clean": "rimraf dist",

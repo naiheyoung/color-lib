@@ -1,0 +1,31 @@
+:root {
+  --colors-red: rgb(255, 69, 58);
+  --colors-orange: rgb(255, 149, 0);
+  --colors-yellow: rgb(255, 214, 10);
+  --colors-green: rgb(50, 215, 75);
+  --colors-mint: rgb(102, 212, 207);
+  --colors-teal: rgb(106, 196, 220);
+  --colors-cyan: rgb(90, 200, 245);
+  --colors-blue: rgb(10, 132, 255);
+  --colors-indigo: rgb(94, 92, 230);
+  --colors-purple: rgb(191, 90, 242);
+  --colors-pink: rgb(255, 55, 95);
+  --colors-brown: rgb(172, 142, 104);
+  --colors-gray: rgb(152, 152, 157);
+  --colors-nord0: #2e3440;
+  --colors-nord1: #3b4252;
+  --colors-nord2: #434c5e;
+  --colors-nord3: #4c566a;
+  --colors-nord4: #d8dee9;
+  --colors-nord5: #e5e9f0;
+  --colors-nord6: #eceff4;
+  --colors-nord7: #8fbcbb;
+  --colors-nord8: #88c0d0;
+  --colors-nord9: #81a1c1;
+  --colors-nord10: #5e81ac;
+  --colors-nord11: #bf616a;
+  --colors-nord12: #d08770;
+  --colors-nord13: #ebcb8b;
+  --colors-nord14: #a3be8c;
+  --colors-nord15: #b48ead;
+}

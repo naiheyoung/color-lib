@@ -1,15 +1,29 @@
 import cac from 'cac'
-import { hello } from './index.js'
+import chalk from 'chalk'
+import { readFile } from 'fs/promises'
 
-const cli = cac('hello-cli')
+const regex = /(rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\)|#[0-9a-fA-F]{3,8})/g
+const rgbRegex = /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/
 
-cli
-  .command('<name>', 'Greet someone.')
-  .option('--caps', 'Uppercase the name')
-  .action(async (name, options) => {
-    const _name = options.caps ? name.toUpperCase() : name
-    await hello(_name)
+const cli = cac('colors')
+
+cli.command('[]').action(async () => {
+  const content = await readFile('dist/css/color.css', 'utf-8')
+  const colors = content.match(regex)
+  const hexColors = colors?.filter(c => c.startsWith('#'))
+  const rgbColors = colors?.filter(c => !c.startsWith('#'))
+  console.log('Apple Color')
+  rgbColors?.forEach(color => {
+    const [_, r, g, b] = color.match(rgbRegex) as RegExpMatchArray
+    console.log(
+      chalk.bgRgb(Number(r), Number(g), Number(b))(` ${color.padEnd(18, ' ')} `)
+    )
   })
+  console.log('\nNord Color')
+  hexColors?.forEach(color => {
+    console.log(chalk.bgHex(color)(` ${color} `))
+  })
+})
 
 cli.help()
 cli.parse()
