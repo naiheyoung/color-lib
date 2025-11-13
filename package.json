@@ -1,6 +1,6 @@
 {
   "name": "@naiheyoung/color",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "packageManager": "pnpm@10.20.0",
   "description": "Oh! Color lib.",
   "homepage": "https://github.com/naiheyoung/color-lib#readme",
