@@ -18,7 +18,8 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "pnpm run clean && tsup"
+    "build": "pnpm run clean && tsup",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "color",
