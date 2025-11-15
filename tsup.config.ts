@@ -2,10 +2,10 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['src/index.ts', 'src/cli.ts'],
-  format: ['cjs', 'esm'],
+  format: ['esm'],
   dts: true,
   outDir: 'dist',
   splitting: false,
   clean: true,
-  publicDir: true
+  onSuccess: 'node scripts/copy.ts'
 })
