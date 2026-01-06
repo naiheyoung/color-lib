@@ -7,5 +7,5 @@ export default defineConfig({
   outDir: 'dist',
   splitting: false,
   clean: true,
-  onSuccess: 'node scripts/copy.ts'
+  onSuccess: 'node scripts/color.ts'
 })
