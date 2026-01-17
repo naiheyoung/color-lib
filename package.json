@@ -1,7 +1,7 @@
 {
   "name": "@naiheyoung/color",
   "version": "1.1.0",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.28.0",
   "description": "Oh! Color lib.",
   "homepage": "https://github.com/naiheyoung/color-lib#readme",
   "author": "Naihe",
@@ -11,8 +11,9 @@
     "type": "git",
     "url": "https://github.com/naiheyoung/color-lib.git"
   },
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": "./css/colors.css"
   },
@@ -20,17 +21,14 @@
     "colors": "bin/cli.js"
   },
   "scripts": {
-    "clean": "rimraf dist css",
-    "build": "pnpm run clean && tsup",
+    "test": "vitest",
+    "build": "tsdown",
+    "postbuild": "node scripts/color.ts",
     "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "color",
-    "ui",
-    "esm",
-    "cjs",
-    "cli",
-    "template"
+    "ui"
   ],
   "files": [
     "dist",
@@ -38,13 +36,14 @@
     "README.md"
   ],
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.0.9",
     "cac": "^6.7.14",
     "chalk": "^5.6.2",
     "ora": "^9.0.0",
-    "rimraf": "^6.1.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "tsdown": "0.20.0-beta.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.17"
   },
   "publishConfig": {
     "access": "public"

@@ -1,3 +1,13 @@
-**Color Lib**
+## Some Colors.
 
-> Theme colors.
+## USED
+
+```ts
+import '@naiheyoung/color'
+```
+
+### CLI
+
+```bash
+colors
+```

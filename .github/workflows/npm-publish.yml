@@ -13,7 +13,25 @@ permissions:
   contents: read
 
 jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    outputs:
+      is_version: ${{ steps.check.outputs.is_version }}
+    steps:
+      - name: Check commit message
+        id: check
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          echo "Commit message: $COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "is_version=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_version=false" >> "$GITHUB_OUTPUT"
+          fi
+
   publish:
+    needs: check-version
     runs-on: ubuntu-latest
 
     steps:
@@ -30,13 +48,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: pnpm
 
-      - run: npm install -g npm@latest
-
       - name: Install
-        run: pnpm install
+        run: pnpm i --frozen-lockfile
 
       - name: Build
         run: pnpm build
 
       - name: Publish
-        run: npm publish
+        run: pnpm publish --provenance --access public

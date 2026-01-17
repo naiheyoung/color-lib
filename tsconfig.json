@@ -4,15 +4,14 @@
     "module": "esnext",
     "moduleResolution": "node",
     "declaration": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "lib": ["dom", "esnext"],
-    "allowJs": true
+    "allowJs": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true
   },
-  "include": ["src", "bin"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "bin"]
 }
